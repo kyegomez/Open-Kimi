@@ -1,5 +1,7 @@
 # Open-Kimi-K2-Thinking
 
+![Architecture kimi k2](image/arch.png)
+
 This repository is a straightforward attempt to implement the base Kimi K2 Reasoning model architecture in pure PyTorch as simply as possible.
 
 [Link](https://huggingface.co/moonshotai/Kimi-K2-Thinking)
