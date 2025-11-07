@@ -1,8 +1,10 @@
+from typing import Any, Optional
+
+import torch
+from torch import nn
+
 from open_kimi.mla import MLA
 from open_kimi.moe import MoE
-from torch import nn
-from typing import Optional, Any
-import torch
 
 
 class TransformerBlock(nn.Module):
@@ -56,13 +58,6 @@ class TransformerBlock(nn.Module):
         return second_layer + mixed
 
 
-# if __name__ == "__main__":
-#     block = TransformerBlock(dim=512, seq_len=1024)
-#     x = torch.randn(2, 1024, 512)
-#     out = block(x, None)
-#     print(out)
-
-
 class KimiK2(nn.Module):
     def __init__(
         self,
@@ -104,14 +99,10 @@ class KimiK2(nn.Module):
 
         self.output_head = nn.Sequential(nn.LayerNorm(dim), nn.Linear(dim, vocab_size))
 
-    def forward(self, x):
-
+    def forward(self, x) -> torch.Tensor:
         x = self.embedding(x)
 
-        # for block in self.blocks:
-        #     x = block(x, None)
-
-        for block in self.blocks:
-            x = block(x, None)
+        for block in self.blocks:     
+            x = block(x, mask=None)
 
         return self.output_head(x)
