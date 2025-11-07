@@ -30,6 +30,16 @@ if __name__ == "__main__":
     print(out)
 ```
 
+
+## Post Training
+
+On the model huggingface page, they mention they use Native INT4 Quantization in the post training phase. So I would say a good post training recipe would include:
+
+- Native INT4 Quantization
+- MUON Optimizer
+- GRPO
+
+
 # Citation
 
 ```bibtex
@@ -40,10 +50,6 @@ if __name__ == "__main__":
   howpublished={\url{https://huggingface.co/moonshotai/Kimi-K2-Thinking}}
 }
 ```
-
-## License
-
-This implementation is provided for research purposes. Please refer to the original model's license (Modified MIT License) for usage terms.
 
 ## Acknowledgments
 
