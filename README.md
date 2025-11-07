@@ -12,7 +12,10 @@ This repository is a straightforward attempt to implement the base Kimi K2 Reaso
 pip3 install -U open-kimi
 ```
 
-## Example
+
+## Kimi K2 Reasoning
+
+### Example
 
 ```python
 from open_kimi.model import KimiK2
@@ -35,7 +38,7 @@ if __name__ == "__main__":
     print(out)
 ```
 
-## Full Example
+### Full Example
 
 ```python
 from open_kimi.model import KimiK2
@@ -57,6 +60,16 @@ if __name__ == "__main__":
     out = model(x)
     print(out)
 ```
+
+### Post Training
+
+On the model huggingface page, they mention they use Native INT4 Quantization in the post training phase. So I would say a good post training recipe would include:
+
+- Native INT4 Quantization
+- MUON Optimizer
+- GRPO
+
+-----
 
 ## Kimi Linear
 
@@ -90,13 +103,7 @@ if __name__ == "__main__":
     print(out.shape)
 ```
 
-## Post Training
-
-On the model huggingface page, they mention they use Native INT4 Quantization in the post training phase. So I would say a good post training recipe would include:
-
-- Native INT4 Quantization
-- MUON Optimizer
-- GRPO
+-------
 
 ## Citation
 
